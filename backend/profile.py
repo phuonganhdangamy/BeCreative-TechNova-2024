@@ -1,4 +1,5 @@
-import backend.available_skills as available_skills
+import available_interests
+import available_skills
 
 class UserProfile:
     def __init__(self, user_id, name, email, profile_picture, skills, interests, experience, education, location, role, bio, linkedin_url=None):
@@ -61,7 +62,7 @@ def encode_skills_one(user: UserProfile):
     Use available_skills.py
     """
     encoded_skills = []
-    for skill in available_skills:
+    for skill in available_skills.skills:
         if skill in user.skills:
             encoded_skills.append(1)
         else:
