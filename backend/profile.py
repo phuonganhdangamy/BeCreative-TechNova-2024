@@ -1,5 +1,5 @@
-import backend.available_skills as available_skills #import list of available skills from available_skills file
-import backend.available_interests as available_interests
+import available_interests
+import available_skills
 import json
 
 class UserProfile:
@@ -79,7 +79,7 @@ def encode_skills_one(user: UserProfile):
     Use available_skills.py
     """
     encoded_skills = []
-    for skill in available_skills:
+    for skill in available_skills.skills:
         if skill in user.skills:
             encoded_skills.append(1)
         else:
@@ -97,7 +97,7 @@ def encode_interests_one(user: UserProfile):
     Use available_interests.py
     """
     encoded_interests = []
-    for interest in available_interests:
+    for interest in available_interests.interests:
         if interest in user.interests:
             encoded_interests.append(1)
         else:
@@ -110,9 +110,8 @@ def encode_interests_multiple(users: list[UserProfile]):
     """
 
 
-def write_profile(self, user: UserProfile):
-    """Write profile info to file"""
-
+def write_profile(self, user_id, name, email, profile_picture, skills, interests, experience, education, location, role, bio):
+    
     #data to be written
     
     user_profile = {
