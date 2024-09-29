@@ -1,0 +1,29 @@
+/* MainComponent Styles */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 40px; /* This is equivalent to pl-10 */
+  background-color: #1e293b; /* bg-slate-800 */
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    padding-left: 20px; /* This is equivalent to max-md:pl-5 */
+  }
+}
+
+.main-title {
+  margin-top: 70px; /* This is equivalent to mt-28 */
+  font-size: 2.25rem; /* This is equivalent to text-4xl */
+  font-weight: 600; /* This is equivalent to font-semibold */
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    margin-top: 40px; /* This is equivalent to max-md:mt-10 */
+    max-width: 100%; /* This is equivalent to max-md:max-w-full */
+  }
+}

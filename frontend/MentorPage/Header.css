@@ -1,0 +1,45 @@
+/* Header Styles */
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  align-self: flex-start;
+  width: 100%;
+  font-size: 2.5rem; /* Equivalent to text-4xl */
+  color: white;
+  max-width: 1362px;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    max-width: 100%;
+  }
+}
+
+.header-logo {
+  object-fit: contain;
+  flex-shrink: 0;
+  max-width: 100%;
+  aspect-ratio: 1.72;
+  width: 250px;
+}
+
+.header-nav {
+  display: flex;
+  gap: 40px;
+  align-self: flex-start;
+  margin-top: 32px;
+}
+
+@media (max-width: 768px) {
+  .header-nav {
+    max-width: 100%;
+  }
+}
+
+.nav-link {
+  flex-basis: auto;
+  color: inherit;
+  text-decoration: none;
+}

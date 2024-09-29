@@ -1,0 +1,53 @@
+/* MentorCard Styles */
+.mentor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 80px;
+  padding-bottom: 112px;
+  margin: 0 auto;
+  width: 100%;
+  color: white;
+  white-space: nowrap;
+  background-color: #1e293b; /* Equivalent to bg-slate-800 */
+}
+
+@media (max-width: 768px) {
+  .mentor-card {
+    padding-bottom: 96px;
+    margin-top: 40px;
+  }
+}
+
+.mentor-card-header {
+  display: flex;
+  gap: 4px;
+  margin-top: -20px;
+  font-size: 2.5rem; /* Equivalent to text-4xl */
+  font-weight: 600;
+  z-index: 10;
+}
+
+.mentor-card-image {
+  object-fit: contain;
+  flex-shrink: 0;
+  max-width: 100%;
+  border-radius: 12px;
+  aspect-ratio: 0.82;
+  width: 140px;
+}
+
+.mentor-card-name {
+  margin: auto 0;
+}
+
+.mentor-card-details {
+  margin-left: 24px;
+  font-size: 1.5rem; /* Equivalent to text-2xl */
+}
+
+@media (max-width: 768px) {
+  .mentor-card-details {
+    margin-left: 10px;
+  }
+}
