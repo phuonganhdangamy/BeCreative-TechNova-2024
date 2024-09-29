@@ -110,8 +110,9 @@ def encode_interests_multiple(users: list[UserProfile]):
     """
 
 
-def write_profile(self, user_id, name, email, profile_picture, skills, interests, experience, education, location, role, bio):
-    
+def write_profile(self, user: UserProfile):
+    """Write profile info to file"""
+
     #data to be written
     
     user_profile = {
@@ -134,7 +135,33 @@ def write_profile(self, user_id, name, email, profile_picture, skills, interests
     #write to file.json
     with open("file.json", "w") as outfile:
         outfile.write(json_object)
+
+def read_user_profile(self, user_id):
+
+    user_profile = {}
+
+    # Opening JSON file
+    openfile = open('file.json')
+
+    #return json object as dictionary
+    data = json.load(openfile)
     
+    #iterate through list
+    retrieveInfo = False
+    for i in data['user_profile']:
+        if (data.get(user_id)==self.user_id):
+            retrieveInfo = True
+        else:
+            retrieveInfo = False
+        if retrieveInfo == True:
+            user_profile.append()
+    
+    return user_profile
+    
+            
+    openfile.close
+                  
+         
 
 
 def compare_user_id(users: list[UserProfile], user_id):
