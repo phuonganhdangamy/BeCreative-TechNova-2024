@@ -1,0 +1,71 @@
+/* MentorGrid Styles */
+.mentor-grid {
+  margin-top: 80px;
+  width: 100%;
+  max-width: 1300px;
+}
+
+@media (max-width: 768px) {
+  .mentor-grid {
+    margin-top: 40px;
+    max-width: 100%;
+  }
+}
+
+.mentor-row {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .mentor-row {
+    flex-direction: column;
+  }
+}
+
+.mentor-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+
+@media (max-width: 768px) {
+  .mentor-column {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.mentor-second-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 32px;
+  width: 100%;
+  max-width: 1370px;
+}
+
+@media (max-width: 768px) {
+  .mentor-second-row {
+    flex-direction: column;
+    max-width: 100%;
+  }
+}
+
+.mentor-column-large {
+  flex: 0.3;
+  width: 30%;
+}
+
+.mentor-column-empty {
+  flex: 0.7;
+  width: 70%;
+  margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .mentor-column-large, .mentor-column-empty {
+    width: 100%;
+    margin-left: 0;
+  }
+}
