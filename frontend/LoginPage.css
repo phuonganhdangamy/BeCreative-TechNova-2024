@@ -1,0 +1,51 @@
+/* LoginPage.css */
+
+.login-page-container {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  padding-left: 2.5rem; /* corresponds to pl-10 */
+  background-color: #1e293b; /* corresponds to bg-slate-800 */
+}
+
+@media (max-width: 768px) {
+  .login-page-container {
+    padding-left: 1.25rem; /* corresponds to max-md:pl-5 */
+  }
+}
+
+.login-header {
+  width: 100%;
+  max-width: 1365px;
+}
+
+@media (max-width: 768px) {
+  .login-header {
+    max-width: 100%;
+  }
+}
+
+.login-main {
+  align-self: flex-end;
+  margin-top: 6rem; /* corresponds to mt-24 */
+  width: 100%;
+  max-width: 1350px;
+}
+
+@media (max-width: 768px) {
+  .login-main {
+    margin-top: 2.5rem; /* corresponds to max-md:mt-10 */
+    max-width: 100%;
+  }
+}
+
+.login-content {
+  display: flex;
+  gap: 1.25rem; /* corresponds to gap-5 */
+}
+
+@media (max-width: 768px) {
+  .login-content {
+    flex-direction: column; /* corresponds to max-md:flex-col */
+  }
+}

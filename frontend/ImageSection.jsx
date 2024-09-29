@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './ImageSection.css'; // Import the CSS file
 
 const ImageSection = ({ imageUrl, altText }) => {
   return (
-    <section className="flex flex-col w-[44%] max-md:ml-0 max-md:w-full">
-      <div className="flex flex-col justify-center px-2.5 py-3 w-full rounded-md bg-slate-700 max-md:mt-10 max-md:max-w-full">
+    <section className="image-section">
+      <div className="image-section__container">
         <img
           loading="lazy"
           src={imageUrl}
           alt={altText}
-          className="object-contain w-full rounded-md aspect-[1.5] max-md:max-w-full"
+          className="image-section__img"
           onError={(e) => {
             e.target.src = 'https://via.placeholder.com/300'; // Fallback image in case of error
           }}
