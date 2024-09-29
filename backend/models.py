@@ -1,7 +1,8 @@
-from sklearn.feature_extraction.text import TfidfVectorizer
+import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-import available_skills
+
 import available_interests
+import available_skills
 import profile
 
 # Create a list of all unique skills across mentors and mentees
@@ -28,11 +29,13 @@ all_interests = available_interests.interests
 #     print(similarity_scores)
 # ################################################################
 
+
 def calculate_similarity_skills(user: profile.UserProfile, another: profile.UserProfile) -> float:
-    user_encode_skill = profile.encode_skills_one(user)
-    another_encode_skill = profile.encode_skills_one(another)
-    similarity_score = cosine_similarity(user_encode_skill, another_encode_skill)
-    return similarity_score
+    user_encode_skill = np.array(profile.encode_skills_one(user))
+    another_encode_skill = np.array(profile.encode_skills_one(another))
+    similarity_score = cosine_similarity(user_encode_skill.reshape(1, -1), another_encode_skill.reshape(1, -1))
+    return similarity_score.item()
+
 
 def suggest_similarity_skills(user: profile.UserProfile, others: list[profile.UserProfile]):
     """
@@ -40,21 +43,24 @@ def suggest_similarity_skills(user: profile.UserProfile, others: list[profile.Us
     """
     people_by_similarity = {}
     for person in others:
-        people_by_similarity[person.user_id] = calculate_similarity_skills(user, person)
-    
-    sorted_people_by_similarity = sorted(people_by_similarity, key=lambda x: x[1], reverse=True)
+        people_by_similarity[person] = calculate_similarity_skills(user, person)
+
+    sorted_people_by_similarity = sorted(people_by_similarity.items(), key=lambda x: x[1], reverse=True)
 
     return sorted_people_by_similarity
 
+
 def calculate_similarity_interests(user: profile.UserProfile, another: profile.UserProfile) -> float:
-    user_encode_interest = profile.encode_interests_one(user)
-    another_encode_interest = profile.encode_interests_one(another)
-    similarity_score = cosine_similarity(user_encode_interest, another_encode_interest)
-    return similarity_score
+    user_encode_interest = np.array(profile.encode_interests_one(user))
+    another_encode_interest = np.array(profile.encode_interests_one(another))
+    similarity_score = cosine_similarity(user_encode_interest.reshape(1, -1), another_encode_interest.reshape(1, -1))
+    return similarity_score.item()
+
 
 def suggest_similarity_interests(user: profile.UserProfile, others: list[profile.UserProfile]):
     people_by_similarity = {}
     for person in others:
-        people_by_similarity[person.user_id] = calculate_similarity_skills(user, person)
+        people_by_similarity[person] = calculate_similarity_skills(user, person)
 
-    sorted_people_by_similarity = sorted(people_by_similarity, key=lambda x: x[1], reverse=True)
+    sorted_people_by_similarity = sorted(people_by_similarity.items(), key=lambda x: x[1], reverse=True)
+    return sorted_people_by_similarity

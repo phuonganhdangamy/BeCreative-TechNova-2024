@@ -50,11 +50,11 @@ class UserProfile:
 ################################################################
 
 def find_people_by_role(users: list[UserProfile], role):
-    role_people = {}
+    role_people = []
     for user in users:
         if user.role == role:
-                role_people[str(user)] = user
-    
+            role_people.append(user)
+
     return role_people
 
 def find_people_by_user_id(users: list[UserProfile], user_id):
@@ -62,7 +62,7 @@ def find_people_by_user_id(users: list[UserProfile], user_id):
     for user in users:
         if user.user_id == user_id:
                 user_id_people[str(user)] = user
-    
+
     return user_id_people
 
 def find_people_by_name(users: list[UserProfile], name):
@@ -70,7 +70,7 @@ def find_people_by_name(users: list[UserProfile], name):
     for user in users:
         if user.name == name:
                 name_people[str(user)] = user
-    
+
     return name_people
 
 def encode_skills_one(user: UserProfile):
@@ -111,9 +111,9 @@ def encode_interests_multiple(users: list[UserProfile]):
 
 
 def write_profile(self, user_id, name, email, profile_picture, skills, interests, experience, education, location, role, bio):
-    
+
     #data to be written
-    
+
     user_profile = {
         "user_id": self.user_id,
         "name": self.name,
@@ -144,7 +144,7 @@ def read_user_profile(self, user_id):
 
     #return json object as dictionary
     data = json.load(openfile)
-    
+
     #iterate through list
     retrieveInfo = False
     for i in data['user_profile']:
@@ -154,13 +154,9 @@ def read_user_profile(self, user_id):
             retrieveInfo = False
         if retrieveInfo == True:
             user_profile.append()
-    
-    return user_profile
-    
-            
+
     openfile.close
-                  
-         
+    return user_profile
 
 
 def compare_user_id(users: list[UserProfile], user_id):
@@ -171,5 +167,5 @@ def compare_user_id(users: list[UserProfile], user_id):
     for user in users:
         if user.user_id == user_id:
                 return 0
-    
+
     return 1
